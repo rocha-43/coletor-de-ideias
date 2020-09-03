@@ -1,17 +1,17 @@
 package main
 
 import (
-	"log"
-	"net/http"
-
-	"./addidea"
-	"./index"
-	"./see"
+    "fmt"
+    "cdi/router"
+    "net/http"
+    "log"
 )
 
 func main() {
-	http.HandleFunc("/", index.Index)
-	http.HandleFunc("/add", addidea.AddIdea)
-	http.HandleFunc("/see", see.See)
-	log.Fatal(http.ListenAndServe(":8080", nil))
+    r := router.Router()
+
+    fmt.Println("API - fist golang api")
+    fmt.Println("#GooglePlzHireMe")
+
+    log.Fatal(http.ListenAndServe(":8080", r))
 }
